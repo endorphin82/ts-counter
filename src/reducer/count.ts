@@ -1,8 +1,12 @@
+import {ActionsTypes} from "../store"
+
+export type initialState = typeof initialState
+
 const initialState = {
     count: 0
 }
 
-export default (state = initialState, action: any) => {
+export default (state = initialState, action: ActionsTypes): initialState => {
     switch (action.type) {
         case "INCREMENT":
             return {

@@ -1,9 +1,19 @@
 import React from 'react';
 import {connect} from "react-redux"
-import './App.css';
-import {decrement, increment} from "./ac";
+import {increment, decrement} from "./ac";
+import {initialState} from "./reducer/count";
+import {RootState} from "./reducer";
+// import {Dispatch} from "redux";
 
-const App: React.FC<any> = ({count, increment, decrement}): any => {
+import './App.css';
+
+interface Props {
+    count: number
+    increment: () => void
+    decrement: () => void
+}
+
+const App: React.FC<Props> = ({count,increment, decrement}) => {
     const handleClickIncrement = () => {
         increment()
     }
@@ -27,9 +37,21 @@ const App: React.FC<any> = ({count, increment, decrement}): any => {
     );
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: RootState): initialState => ({
     count: state.count.count
 })
 
-// @ts-ignore
-export default connect<typeof App>(mapStateToProps, {increment, decrement})(App);
+
+const mapDispatchToProps = {
+    increment, decrement
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// export default connect<ReturnType<typeof mapStateToProps>, typeof mapDispatchToProps, any, RootState>(mapStateToProps, mapDispatchToProps)(App);
+
+// type DispatchType = Dispatch<ActionsTypes>
+
+// const mapDispatchToProps = (dispatch: DispatchType) => ({
+//     onIncrement: () => dispatch(increment()),
+//     onDecrement: () => dispatch(decrement())
+// })

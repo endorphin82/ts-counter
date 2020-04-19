@@ -12,7 +12,7 @@ export default (state = initialState, action: ActionsTypes): initialState => {
             return {
                 ...state,
                 count: state.count + action.payload
-            }
+            };
         case "DECREMENT":
             return {
                 ...state,

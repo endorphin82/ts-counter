@@ -1,4 +1,5 @@
-import {ActionsTypes} from "../store"
+import { INCREMENT, DECREMENT } from '../ac/types';
+import {ActionsTypes} from '../store'
 
 export type initialState = typeof initialState
 
@@ -8,12 +9,12 @@ const initialState = {
 
 export default (state = initialState, action: ActionsTypes): initialState => {
     switch (action.type) {
-        case "INCREMENT":
+        case INCREMENT:
             return {
                 ...state,
                 count: state.count + action.payload
             };
-        case "DECREMENT":
+        case DECREMENT:
             return {
                 ...state,
                 count: state.count - action.payload

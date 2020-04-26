@@ -9,16 +9,16 @@ import './App.css';
 
 interface Props {
     count: number
-    increment: () => void
-    decrement: () => void
+    increment: (p: number) => void
+    decrement: (p: number) => void
 }
 
 const App: React.FC<Props> = ({count,increment, decrement}) => {
     const handleClickIncrement = () => {
-        increment()
+        increment(1)
     }
     const handleClickDecrement = () => {
-        decrement()
+        decrement(2)
     }
     return (
         <div className="App">

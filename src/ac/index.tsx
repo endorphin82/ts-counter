@@ -1,15 +1,8 @@
-import { Dispatch } from "redux"
-import { ActionsTypes } from "../store"
+import {INCREMENT, DECREMENT} from "./types"
 
-export const increment = () => ({
-    type: "INCREMENT",
-    payload: 1
-}as const)
+export const increment = (p: number) => ({type: INCREMENT, payload: p} as const)
 
-export const decrement = () => ({
-    type: "DECREMENT",
-    payload: 2
-}as const)
+export const decrement = (p: number) => ({type: DECREMENT, payload: p} as const)
 
 // export type ActionsTypes = any
 // Type GetStateType = () => AppStateType
